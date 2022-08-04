@@ -22,6 +22,7 @@ import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatCardModule}  from '@angular/material/card';
+import { UserDetailComponent } from './user-detail/user-detail.component';
 
 
 
@@ -30,7 +31,8 @@ import { MatCardModule}  from '@angular/material/card';
     AppComponent,
     DashboardComponent,
     UserComponent,
-    DialogUserComponent
+    DialogUserComponent,
+    UserDetailComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
