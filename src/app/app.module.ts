@@ -20,6 +20,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatCardModule}  from '@angular/material/card';
+
 
 
 @NgModule({
@@ -45,6 +48,8 @@ import { AngularFireModule } from '@angular/fire/compat';
     MatDatepickerModule,
     MatNativeDateModule,
     FormsModule,
+    MatProgressBarModule,
+    MatCardModule
     
     
     

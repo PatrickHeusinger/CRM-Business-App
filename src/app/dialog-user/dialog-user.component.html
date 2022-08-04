@@ -1,50 +1,61 @@
-<h1 mat-dialog-title>Add User</h1>
-<div mat-dialog-content>
-    <mat-form-field class="mr-16" appearance="outline">
-        <mat-label>First Name</mat-label>
-        <input [(ngModel)]="user.firstName" matInput placeholder="Enter your first name">
-    </mat-form-field>
-
-    <mat-form-field appearance="outline">
-        <mat-label>Last Name</mat-label>
-        <input [(ngModel)]="user.lastName" matInput placeholder="Enter your last name">
-    </mat-form-field>
-</div>
-
-<div>
-    <mat-form-field class="full-width" appearance="outline">
-        <mat-label>Birthdate</mat-label>
-        <input [(ngModel)]="birthDate" matInput placeholder="Enter Your Birthdate" [matDatepicker]="picker1">
-        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-        <mat-datepicker #picker1></mat-datepicker>
-    </mat-form-field>
-</div>
+<div class="dialog-container">
+    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+    <h1 mat-dialog-title>Add User</h1>
 
 
-<div mat-dialog-content>
-    <mat-form-field class="full-width" appearance="outline">
-        <mat-label>Street & Number</mat-label>
-        <input [(ngModel)]="user.street" matInput placeholder="Enter your street and number">
-    </mat-form-field>
-</div>
-<div mat-dialog-content>
-    <mat-form-field class="mr-16" appearance="outline">
-        <mat-label>City</mat-label>
-        <input [(ngModel)]="user.city" matInput placeholder="Enter your city">
-    </mat-form-field>
-    <mat-form-field appearance="outline">
-        <mat-label>Zip Code</mat-label>
-        <input [(ngModel)]="user.zipCode" matInput placeholder="Enter your zip code">
-    </mat-form-field>
+    <div mat-dialog-content>
+        <mat-form-field class="mr-16" appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input [disabled]="loading" [(ngModel)]="user.firstName" matInput placeholder="Enter your first name">
+        </mat-form-field>
 
-</div>
-<div mat-dialog-content>
+        <mat-form-field appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input [disabled]="loading" [(ngModel)]="user.lastName" matInput placeholder="Enter your last name">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input [disabled]="loading" [(ngModel)]="user.email" matInput placeholder="Enter your email">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Birthdate</mat-label>
+            <input [disabled]="loading" [(ngModel)]="birthDate" matInput placeholder="Enter Your Birthdate" [matDatepicker]="picker1">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+    </div>
 
-</div>
+
+    <div mat-dialog-content>
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Street & Number</mat-label>
+            <input [disabled]="loading" [(ngModel)]="user.street" matInput placeholder="Enter your street and number">
+        </mat-form-field>
+    </div>
+    <div mat-dialog-content>
+        <mat-form-field class="mr-16" appearance="outline">
+            <mat-label>City</mat-label>
+            <input [disabled]="loading" [(ngModel)]="user.city" matInput placeholder="Enter your city">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Zip Code</mat-label>
+            <input [disabled]="loading" [(ngModel)]="user.zipCode" matInput placeholder="Enter your zip code">
+        </mat-form-field>
+
+    </div>
+    <div mat-dialog-content>
+
+    </div>
 
 
 
-<div mat-dialog-actions>
-    <button mat-button>Cancel</button>
-    <button mat-button (click)="saveUser()" cdkFocusInitial>Save</button>
+    <div mat-dialog-actions>
+        <button [disabled]="loading" mat-button>Cancel</button>
+        <button [disabled]="loading" mat-button (click)="saveUser()" cdkFocusInitial>Save</button>
+    </div>
+
 </div>
