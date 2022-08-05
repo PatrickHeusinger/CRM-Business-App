@@ -23,6 +23,10 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatCardModule}  from '@angular/material/card';
 import { UserDetailComponent } from './user-detail/user-detail.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { EditUserComponent } from './edit-user/edit-user.component';
+import { EditUserAddressComponent } from './edit-user-address/edit-user-address.component';
+
 
 
 
@@ -32,7 +36,9 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
     DashboardComponent,
     UserComponent,
     DialogUserComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    EditUserComponent,
+    EditUserAddressComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
@@ -51,7 +57,8 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
     MatNativeDateModule,
     FormsModule,
     MatProgressBarModule,
-    MatCardModule
+    MatCardModule,
+    MatMenuModule
     
     
     

@@ -1,16 +1,36 @@
 <mat-card class="user-card">
+    <button [matMenuTriggerFor]="userMenu" class="card-menu-button" mat-icon-button>
+        <mat-icon>more_vert</mat-icon>
+    </button>
+
+    <mat-menu #userMenu="matMenu">
+        <button mat-menu-item (click)="editUserDetail()">Edit</button>
+
+    </mat-menu>
+
+
     <img src="assets/img/Player_2 Kopie.jpg">
     <div class="user-info">
-        <h2>Max Mustermann</h2>
-        <span>email@email.de</span>
+        <h2>{{user.firstName}} {{user.lastName}}</h2>
+        <span>{{user.email}}</span>
     </div>
 </mat-card>
 
 <mat-card class="mt-32">
+    <button [matMenuTriggerFor]="addressMenu" class="card-menu-button" mat-icon-button>
+        <mat-icon>more_vert</mat-icon>
+    </button>
+
+    <mat-menu #addressMenu="matMenu">
+        <button mat-menu-item (click)="editMenu()">Edit</button>
+
+    </mat-menu>
 
     <mat-card-title>Address</mat-card-title>
 
     <mat-card-content>
-        Schwarzburgstr. 37 <br> 60318 Frankfurt
+        {{user.street}} <br> {{user.zipCode}} {{user.city}}
     </mat-card-content>
+
+
 </mat-card>
