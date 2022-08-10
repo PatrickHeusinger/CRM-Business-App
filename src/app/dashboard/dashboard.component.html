@@ -7,8 +7,8 @@
 </mat-card>
 <div class="infoBox">
     <mat-card class="dashInfo">
-        <span>Number Of Users</span>
-        <span class="dashSpan">{{ this.allUsers.length }}</span>
+        <span>Users</span>
+        <span class="dashUsers">{{ this.allUsers.length }}</span>
     </mat-card>
 
 
@@ -18,7 +18,7 @@
     </mat-card>
     <mat-card class="dashInfo">
         <span>Time</span><br>
-        <div>{{ time | date: 'hh:mm:ss a' }}</div>
+        <div class="dashSpan">{{ time | date: 'hh:mm:ss a' }}</div>
 
     </mat-card>
 </div>
