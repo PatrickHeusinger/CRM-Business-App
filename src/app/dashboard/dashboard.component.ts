@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
+import { AngularFirestore } from "@angular/fire/compat/firestore";
 import { Subscription, timer } from "rxjs";
 import { map, share } from "rxjs/operators";
 import { FirebaseService } from "../firebase.service";
@@ -17,11 +18,19 @@ export class DashboardComponent implements OnInit {
   intervalId;
   subscription: Subscription;
   date: Date = new Date(Date.now());
- 
+  allUsers:any = [];
+  changes: any;
+  
 
-  constructor(public service: FirebaseService) { }
+  constructor(public service: FirebaseService, private firestore: AngularFirestore) { }
 
   ngOnInit(): void {
+    this.firestore.collection('users').valueChanges({idField: 'customIdName'}).subscribe((changes: any) => {
+      console.log('Recieved',changes);
+      this.allUsers = changes;
+      
+    
+      });
 
     console.log( this.service.totalUsers.length);
     
