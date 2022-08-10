@@ -3,4 +3,28 @@
     <h2>Welcome to the simple CRM </h2>
     <span>This application is a very simple CRM to demonstrate Angular and Firebase in combination with Angular Material Design.</span>
 
+
 </mat-card>
+<div class="infoBox">
+    <mat-card class="dashInfo">
+        <span>Time</span><br>
+        <div>{{ time | date: 'hh:mm:ss a' }}</div>
+
+    </mat-card>
+
+    <mat-card class="dashInfo">
+        <span>Today</span><br>
+        <div class="day"> {{ date | date:'EEEE' }}</div>
+    </mat-card>
+</div>
+
+<div class="infoBox">
+    <mat-card class="dashInfo">
+
+    </mat-card>
+
+    <mat-card class="dashInfo">
+        <span>Users</span>
+        <span>{{ service.totalUsers.length }}</span>
+    </mat-card>
+</div>
