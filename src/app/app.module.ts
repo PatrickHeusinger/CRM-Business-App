@@ -26,6 +26,10 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { EditUserAddressComponent } from './edit-user-address/edit-user-address.component';
+import { TodoComponent } from './todo/todo.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { TodoDialogComponent } from './todo-dialog/todo-dialog.component';
+
 
 
 
@@ -38,7 +42,9 @@ import { EditUserAddressComponent } from './edit-user-address/edit-user-address.
     DialogUserComponent,
     UserDetailComponent,
     EditUserComponent,
-    EditUserAddressComponent
+    EditUserAddressComponent,
+    TodoComponent,
+    TodoDialogComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
@@ -58,7 +64,8 @@ import { EditUserAddressComponent } from './edit-user-address/edit-user-address.
     FormsModule,
     MatProgressBarModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    DragDropModule
     
     
     

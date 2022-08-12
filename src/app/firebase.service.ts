@@ -9,6 +9,7 @@ import { Injectable } from '@angular/core';
 export class FirebaseService {
 
 public totalUsers: string[] = [];
+public allTodos: string[] = [];
   
 
 

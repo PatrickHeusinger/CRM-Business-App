@@ -1,4 +1,5 @@
 .drawer-container {
+    position: relative;
     height: 100vh;
 }
 
@@ -51,4 +52,12 @@ mat-toolbar {
     padding-left: 56px;
     padding-right: 56px;
     padding-top: 16px;
+}
+
+.dashCalender {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
 }

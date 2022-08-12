@@ -1,0 +1,16 @@
+<form class="todoInput">
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Title</mat-label>
+        <input matInput placeholder="ToDo" [(ngModel)]="todo.todoTitle">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea matInput placeholder="Enter text..." [(ngModel)]="todo.todoDescription"></textarea>
+    </mat-form-field>
+</form>
+
+<div mat-dialog-actions>
+    <button mat-button (click)="dialogRef.close()">Cancel</button>
+    <button mat-button (click)="saveTodo()" cdkFocusInitial>Save</button>
+</div>
