@@ -20,6 +20,7 @@ export class DashboardComponent implements OnInit {
   date: Date = new Date(Date.now());
   allUsers:any = [];
   changes: any;
+  allTodos: any = [];
   
 
   constructor(public service: FirebaseService, private firestore: AngularFirestore) { }
@@ -28,9 +29,14 @@ export class DashboardComponent implements OnInit {
     this.firestore.collection('users').valueChanges({idField: 'customIdName'}).subscribe((changes: any) => {
       console.log('Recieved',changes);
       this.allUsers = changes;
-      
-    
       });
+
+      this.firestore.collection('todo').valueChanges({idField: 'customIdName'}).subscribe((changes: any) => {
+        console.log('Recieved',changes);
+        this.allTodos = changes;
+        });
+
+     
 
     console.log( this.service.totalUsers.length);
     

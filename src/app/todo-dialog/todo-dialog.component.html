@@ -1,12 +1,12 @@
 <form class="todoInput">
     <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Title</mat-label>
-        <input matInput placeholder="ToDo" [(ngModel)]="todo.todoTitle">
+        <input matInput placeholder="ToDo" [(ngModel)]="todo.todoTitle" [ngModelOptions]="{standalone: true}">
     </mat-form-field>
 
     <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Description</mat-label>
-        <textarea matInput placeholder="Enter text..." [(ngModel)]="todo.todoDescription"></textarea>
+        <textarea matInput placeholder="Enter text..." [(ngModel)]="todo.todoDescription" [ngModelOptions]="{standalone: true}"></textarea>
     </mat-form-field>
 </form>
 
