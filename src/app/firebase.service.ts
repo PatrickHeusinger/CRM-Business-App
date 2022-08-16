@@ -10,6 +10,8 @@ export class FirebaseService {
 
 public totalUsers: string[] = [];
 public allTodos: string[] = [];
+public allDone: string[] = [];
+
   
 
 
