@@ -19,7 +19,7 @@
         <h2>Done</h2>
 
         <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="done" [cdkDropListConnectedTo]="[todoList]" class="example-list" (cdkDropListDropped)="drop($event)">
-            <div class="example-box" *ngFor="let item of done" cdkDrag>{{item.todoTitle}}
+            <div class="example-box" *ngFor="let item of done" cdkDrag>{{item.doneTitle}}
                 <mat-icon (click)="deleteDone()">delete_outline</mat-icon>
             </div>
 

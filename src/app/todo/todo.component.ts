@@ -19,7 +19,7 @@ export class TodoComponent implements OnInit {
  
   
   todo = new Todo();
-  doneTodo = this.todo;
+  doneTodo = new Done();
   todoTitle: any;
   todoDescription: any;
   doneTitle: any;
@@ -31,7 +31,7 @@ export class TodoComponent implements OnInit {
   
   todos: any = [this.todo]
     
-  done: any = [this.todo];
+  done: any = [this.doneTodo];
   
   
   
@@ -64,7 +64,17 @@ export class TodoComponent implements OnInit {
         event.previousIndex,
         event.currentIndex,
         );
+        this.firestore.collection('done').add(this.doneTodo.toJSON()).then((result: any) =>{
+          console.log('Add Done :', result);
+          this.firebaseService.allDone.push(result);
+         
+          console.log(this.done);
+          console.log(this.firebaseService.allDone);
+          
+          
+          });
       } 
+     
   }
 
   
