@@ -10,6 +10,7 @@ import { Done } from 'src/models/done.class';
 
 
 
+
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
@@ -19,7 +20,7 @@ export class TodoComponent implements OnInit {
  
   
   todo = new Todo();
-  doneTodo = new Done();
+  doneTodo = new Done(this.todo.toJSON());
   todoTitle: any;
   todoDescription: any;
   doneTitle: any;
@@ -29,7 +30,8 @@ export class TodoComponent implements OnInit {
   todoId: string;
   
   
-  todos: any = [this.todo]
+  
+  todos: any = [this.todo];
     
   done: any = [this.doneTodo];
   
@@ -38,7 +40,7 @@ export class TodoComponent implements OnInit {
   constructor(public dialog: MatDialog,public firestore: AngularFirestore, public firebaseService: FirebaseService) { }
 
   ngOnInit(): void {
-    
+   
    this.firestore.collection('todo').valueChanges({idField: 'customIdName'}).subscribe((changes: any) => {
         console.log('Recieved Todo :',changes);
         this.firebaseService.allTodos = changes;
@@ -64,8 +66,8 @@ export class TodoComponent implements OnInit {
         event.previousIndex,
         event.currentIndex,
         );
-        this.firestore.collection('done').add(this.doneTodo.toJSON()).then((result: any) =>{
-          console.log('Add Done :', result);
+        this.firestore.collection('done').add(this.todo.toJSON()).then((result: any) =>{
+          console.log('Done :', result);
           this.firebaseService.allDone.push(result);
          
           console.log(this.done);
@@ -87,8 +89,9 @@ export class TodoComponent implements OnInit {
     deleteTodo() {
       console.log('Delete Todo Works');
       this.firebaseService.allTodos.pop();
-      
-     
+      this.firestore.collection('todo').valueChanges({idField: 'customIdName'}).subscribe((changes: any) => {
+      console.log('Recieved Delete :',changes);
+      });
     }
 
     deleteDone(){
